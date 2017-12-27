@@ -13,26 +13,26 @@ class CreateBarangTable extends Migration
      */
     public function up()
     {
-        Schema::table('barang', function (Blueprint $table) {
+        Schema::create('barang', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kode_barang', 50)->unique();
             $table->string('nama_barang', 255);
-            $table->string('kemasan', 100);
+            $table->string('kemasan', 100)->nullable();
             $table->float('hpp', 17,2);
             $table->float('margin', 5,2);
             $table->float('harga_jual', 17,2);
             $table->float('diskon', 5,2);
             $table->float('harga_konsumen', 17,2);
             $table->integer('kode_sup');
-            $table->text('deskripsi');
-            $table->json('gambar');
-            $table->json('kategori');
-            $table->json('merek');
+            $table->text('deskripsi')->nullable();
+            $table->text('gambar');
+            $table->text('kategori');
+            $table->text('merek');
             $table->enum('kondisi', ['baru', 'bekas']);
             $table->float('berat', 17,2);
             $table->float('stok_minimal', 17,2);
-            $table->text('barcode');
-            $table->text('qrcode');
+            $table->text('barcode')->nullable();
+            $table->text('qrcode')->nullable();
             $table->timestamps();
         });
     }
@@ -44,6 +44,6 @@ class CreateBarangTable extends Migration
      */
     public function down()
     {
-        Schema::drop('barang')
+        Schema::drop('barang');
     }
 }
