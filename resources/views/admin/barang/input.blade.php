@@ -31,24 +31,24 @@ $('input[type="radio"].minimal').iCheck({
 });
 //Initialize Select2 Elements
 $(".select_kategori1").select2({
-    placeholder: "Select a Kategori 1",
-    allowClear: true
+	placeholder: "Select a Kategori 1",
+	allowClear: true
 });
 $(".select_kategori2").select2({
-    placeholder: "Select a Kategori 2",
-    allowClear: true
+	placeholder: "Select a Kategori 2",
+	allowClear: true
 });
 $(".select_kategori3").select2({
-    placeholder: "Select a Kategori 3",
-    allowClear: true
+	placeholder: "Select a Kategori 3",
+	allowClear: true
 });
 $(".select_type").select2({
-    placeholder: "Select Type",
-    allowClear: true
+	placeholder: "Select Type",
+	allowClear: true
 });
 $(".select_sup").select2({
-    placeholder: "Select a Suplyer",
-    allowClear: true
+	placeholder: "Select a Suplyer",
+	allowClear: true
 });
 
 //Initialize Dropify Elements
@@ -311,10 +311,19 @@ $('.dropify').dropify();
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="video" class="col-sm-4 control-label">Video</label>
-
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="video" name="video" placeholder="Link Video">
+						<div class="col-sm-12">
+							<label for="video" class="control-label">Video</label>
+							<div class="input-group input-group-sm">
+								<input type="text" class="form-control">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-info btn-flat">View</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="margin-top: 20px;">
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+							</div>
 						</div>
 					</div>
 				</div><!-- /.col_sm_6 right -->
