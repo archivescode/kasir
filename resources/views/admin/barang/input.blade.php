@@ -64,6 +64,9 @@ $('.dropify').dropify();
 <!-- title website -->
 @section('title', 'Input Barang')
 
+<!-- set menu sidebar active -->
+@section('menu', 'inputBarang')
+
 <!-- //pageheader content -->
 @section('pageheader', 'Barang')
 

@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
 		Route::get('/', 'BarangController@index');
 		Route::get('/input', 'BarangController@add');
 		Route::get('/kategori', 'KategoriController@index');
+		Route::get('/kategori1', 'KategoriController@kategori1');
 	});
 	
 });

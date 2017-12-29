@@ -14,6 +14,9 @@
 <!-- title website -->
 @section('title', 'Dashboard Kategori')
 
+<!-- set menu sidebar active -->
+@section('menu', 'kategori')
+
 <!-- //pageheader content -->
 @section('pageheader', 'Kategori')
 

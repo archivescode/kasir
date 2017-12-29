@@ -10,4 +10,10 @@ class KategoriController extends Controller
     {
     	return view('admin.barang.kategori');
     }
+
+    /*kategori1*/
+    public function kategori1()
+    {
+    	return view('admin.barang.kategori1');
+    }
 }

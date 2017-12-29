@@ -8,45 +8,57 @@
 @section('javascript')
 @parent
 <!-- //use custom js / javascript here -->
-<script type="text/javascript">
 
-</script>
 @stop
 
 <!-- title website -->
-@section('title', 'Template')
+@section('title', 'Kategori 1')
 
 <!-- set menu sidebar active -->
-@section('menu', 'menuTemplate')
+@section('menu', 'kategori1')
 
 <!-- //pageheader content -->
-@section('pageheader', 'Template')
+@section('pageheader', 'Kategori 1')
 
 <!-- //subpageheader contente -->
-@section('subpageheader', 'Template Kosong')
+@section('subpageheader', 'Data Kategori 1')
 
 <!-- //breadcrumb -->
 @section('breadcrumb')
 @parent
-<li><a href="{{ url('admin/template') }}"><i class="fa fa-shopping-basket"></i> Template</a></li>
-<li class="active">Template Kosong</li>
+<li><a href="{{ url('admin/barang') }}"><i class="fa fa-shopping-basket"></i> Barang</a></li>
+<li><a href="{{ url('admin/barang/kategori') }}"><i class="fa fa-shopping-basket"></i> Kategori</a></li>
+<li class="active">Kategori 1</li>
 @stop
 
 <!-- //main content -->
 @section('content')
-<!-- right column -->
-<div class="col-md-12">
+<!-- top column -->
+<div class="col-md-6">
 	<!-- Horizontal Form -->
 	<div class="box box-info">
 		<div class="box-header with-border">
-			<h4 class="box-title">Template Kosong</h4>
+			<h4 class="box-title">Input Kategori 1</h4>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
 		<form class="form-horizontal">
 			<div class="box-body">
-				<div class="col-md-6">
-					
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="kode_kategori1" class="col-sm-4 control-label">Kode Kategori 1</label>
+
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="kode_kategori1" name="kode_kategori1" placeholder="Kode Kategori">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="nama_kategori1" class="col-sm-4 control-label">Nama Kategori 1</label>
+
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="nama_kategori1" name="nama_kategori1" placeholder="Nama Kategori">
+						</div>
+					</div>
 				</div><!-- /.col_sm_6 left -->
 			</div><!-- /.box-body -->
 			<div class="box-footer">
@@ -57,10 +69,12 @@
 		</form>
 	</div>
 	<!-- /.box -->
+</div>
+<div class="col-sm-12">
 	<!-- Detail -->
 	<div class="box box-info">
 		<div class="box-header with-border">
-			<h4 class="box-title">DAFTAR TEMPLATE</h4>
+			<h4 class="box-title">Daftar Kategori 1</h4>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
