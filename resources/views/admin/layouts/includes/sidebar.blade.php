@@ -107,6 +107,19 @@
       </ul>
     </li>
 
+    <!-- Stok -->
+    <li class="treeview">
+      <a href="{{ url('admin/stok') }}"><i class="fa fa-shopping-basket"></i> <span>Stok</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="{{ url('admin/stok/simulasi') }}">Simulasi Stok</a></li>
+        <li><a href="{{ url('admin/stok/daftar') }}">Daftar Stok</a></li>
+      </ul>
+    </li>
+
   </ul>
   <!-- /.sidebar-menu -->
 </section>
