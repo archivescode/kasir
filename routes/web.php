@@ -14,4 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('admin', 'DashboardController@index');
+
+Route::prefix('admin')->group(function () {
+	//route dashboard
+    Route::get('/', 'DashboardController@index');
+    //route group barang
+    Route::prefix('barang')->group(function () {
+	    Route::get('/', 'BarangController@index');
+	    Route::get('/input', 'BarangController@add');
+	});
+	
+});
