@@ -12,16 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::prefix('admin')->group(function () {
 	//route dashboard
-    Route::get('/', 'DashboardController@index');
+	Route::get('/', 'DashboardController@index');
+	Route::get('/template', function () {
+		return view('admin.template');
+	});
     //route group barang
-    Route::prefix('barang')->group(function () {
-	    Route::get('/', 'BarangController@index');
-	    Route::get('/input', 'BarangController@add');
+	Route::prefix('barang')->group(function () {
+		Route::get('/', 'BarangController@index');
+		Route::get('/input', 'BarangController@add');
+		Route::get('/kategori', 'KategoriController@index');
 	});
 	
 });

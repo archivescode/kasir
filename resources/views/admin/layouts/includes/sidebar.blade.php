@@ -40,6 +40,7 @@
       <ul class="treeview-menu">
         <li><a href="{{ url('admin/barang/input') }}">Input Barang</a></li>
         <li><a href="{{ url('admin/barang/daftar') }}">Daftar Barang</a></li>
+        <li><a href="{{ url('admin/barang/kategori') }}">Kategori</a></li>
       </ul>
     </li>
     <!-- Pembelian -->

@@ -32,7 +32,7 @@ class Kategori extends Migration
             $table2->bigIncrements('id');
             $table2->string('kode_kategori3', 20)->unique();
             $table2->string('nama_kategori3', 255);
-            $table1->integer('id_kategori2');
+            $table2->integer('id_kategori2');
             $table2->timestamps();
         });
 
