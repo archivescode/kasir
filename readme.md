@@ -12,3 +12,4 @@ Installasi
 	# terakhir jalankan php artisan serve
 	# jangan lupa berdo'a
 
+
