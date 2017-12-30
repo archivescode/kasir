@@ -86,7 +86,7 @@
 			</div><!-- /.box-body -->
 			<div class="box-footer">
 				<button type="reset" class="btn btn-default">REFRESH</button>
-				<button type="submit" class="btn btn-info pull-right">EXCELL</button>
+				<button type="submit" class="btn btn-info pull-right">EXCEL</button>
 			</div>
 			<!-- /.box-footer -->
 		</form>
