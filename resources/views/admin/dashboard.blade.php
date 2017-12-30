@@ -12,6 +12,10 @@
 
 <!-- title website -->
 @section('title', 'Dashboard')
+
+<!-- set menu sidebar active -->
+@section('menu', 'adminDashboard')
+
 <!-- //pageheader content -->
 @section('pageheader', 'Dashboard')
 <!-- //subpageheader contente -->
