@@ -28,5 +28,11 @@ Route::prefix('admin')->group(function () {
 		Route::get('/kategori', 'KategoriController@index');
 		Route::get('/kategori1', 'KategoriController@kategori1');
 	});
+
+	//route group todo
+	Route::prefix('todo')->group(function () {
+		Route::post('/store', 'TodoController@store');
+		Route::post('/edit', 'TodoController@edit');
+	});
 	
 });
