@@ -119,7 +119,7 @@
 					<div class="sedang">
 						@foreach ($lists as $list)
 						@if ($list->status == 'sedang')
-						<div class="callout callout-danger" id="{{ $list->id }}">
+						<div class="callout callout-warning" id="{{ $list->id }}">
 							<p>{{ $list->judul }}</p>
 						</div>
 						@endif
@@ -147,7 +147,7 @@
 					<div class="review">
 						@foreach ($lists as $list)
 						@if ($list->status == 'review')
-						<div class="callout callout-danger" id="{{ $list->id }}">
+						<div class="callout callout-info" id="{{ $list->id }}">
 							<p>{{ $list->judul }}</p>
 						</div>
 						@endif
@@ -175,7 +175,7 @@
 					<div class="selese">
 						@foreach ($lists as $list)
 						@if ($list->status == 'selese')
-						<div class="callout callout-danger" id="{{ $list->id }}">
+						<div class="callout callout-success" id="{{ $list->id }}">
 							<p>{{ $list->judul }}</p>
 						</div>
 						@endif
@@ -241,7 +241,7 @@
 		<!-- form start -->
 		<form class="form-horizontal" action="{{ url('admin/todo/edit') }}" method="POST">
 			{{ csrf_field() }}
-			<input type="text" id="idedit" name="idedit">
+			<input type="hidden" id="idedit" name="idedit">
 			<div class="box-body">
 				<div class="col-md-12">
 					<div class="form-group">

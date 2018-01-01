@@ -57,13 +57,13 @@
           </a>
           <ul class="treeview-menu" @if (!empty($__env->yieldContent('menu')) && ($__env->yieldContent('menu') === 'kategori1' || $__env->yieldContent('menu') === 'kategori2' || $__env->yieldContent('menu') === 'kategori3')) style="display:block;"      @endif>
             <li @if (!empty($__env->yieldContent('menu')) && $__env->yieldContent('menu') === 'kategori1') class="active" @endif>
-              <a href="{{ url('admin/barang/kategori1') }}"><i class="fa fa-circle-o"></i> Kategori 1</a>
+              <a href="{{ url('admin/barang/kategori/kategori1') }}"><i class="fa fa-circle-o"></i> Kategori 1</a>
             </li>
             <li @if (!empty($__env->yieldContent('menu')) && $__env->yieldContent('menu') === 'kategori2') class="active" @endif>
-              <a href="{{ url('admin/barang/kategori2') }}"><i class="fa fa-circle-o"></i> Kategori 2</a>
+              <a href="{{ url('admin/barang/kategori/kategori2') }}"><i class="fa fa-circle-o"></i> Kategori 2</a>
             </li>
             <li @if (!empty($__env->yieldContent('menu')) && $__env->yieldContent('menu') === 'kategori3') class="active" @endif>
-              <a href="{{ url('admin/barang/kategori3') }}"><i class="fa fa-circle-o"></i> Kategori 3</a>
+              <a href="{{ url('admin/barang/kategori/kategori3') }}"><i class="fa fa-circle-o"></i> Kategori 3</a>
             </li>
           </ul>
         </li>

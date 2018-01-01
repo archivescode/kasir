@@ -2,14 +2,16 @@
 //////////////////////////////////////////////////
 //program ini di buat oleh archivescode(sarono) //
 //////////////////////////////////////////////////
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Kategori1 extends Model
 {
-	protected $table = 'todo';
+    protected $table = 'kategori1';
     protected $fillable = [
-        'judul', 'isi', 'status'
+        'kode_kategori1', 'nama_kategori1'
     ];
+    
 }

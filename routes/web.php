@@ -25,8 +25,14 @@ Route::prefix('admin')->group(function () {
 	Route::prefix('barang')->group(function () {
 		Route::get('/', 'BarangController@index');
 		Route::get('/input', 'BarangController@add');
-		Route::get('/kategori', 'KategoriController@index');
-		Route::get('/kategori1', 'KategoriController@kategori1');
+		Route::prefix('kategori')->group(function () {
+			Route::get('/', 'KategoriController@index');
+			Route::get('/kategori1', 'KategoriController@kategori1');
+			Route::post('/kategori1', 'KategoriController@kategori1Store');
+			Route::post('/kategori1/delete', 'KategoriController@kategori1Delete');
+			Route::get('/kategori1/{id}', 'KategoriController@kategori1Edit');
+			Route::post('/kategori1/edit', 'KategoriController@kategori1Update');
+		});
 	});
 
 	//route group todo

@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////////////////////
+//program ini di buat oleh archivescode(sarono) //
+//////////////////////////////////////////////////
 
 namespace App\Http\Controllers;
 
@@ -8,10 +11,24 @@ use App\Models\Todo;
 class TodoController extends Controller
 {
 	protected $mTodo;
+	/**
+	 * [__construct description]
+	 * Program ini di buat oleh archivescode
+	 * @sarono
+	 * @version version
+	 */
 	public function __construct()
     {
     	$this->mTodo = new Todo;
     }
+    /**
+     * [store description]
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   Request $request [description]
+     * @return  [type]           [description]
+     */
     public function store(Request $request)
     {
     	$this->mTodo->judul = $request->judul;
@@ -20,6 +37,14 @@ class TodoController extends Controller
     	$this->mTodo->save();
     	return redirect('admin');
     }
+    /**
+     * [edit description]
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   Request $request [description]
+     * @return  [type]           [description]
+     */
     public function edit(Request $request)
     {
     	$update = $this->mTodo::find($request->idedit);
