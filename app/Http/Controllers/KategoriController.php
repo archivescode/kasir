@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kategori1;
+use App\Models\Kategori2;
 use Exception;
 
 class KategoriController extends Controller
@@ -18,9 +19,11 @@ class KategoriController extends Controller
 	/**
 	 * [$mKategori1 description]
 	 * model untuk kategori 1
+	 * model untuk kategori 2
 	 * @var [type]
 	 */
 	protected $mKategori1;
+	protected $mKategori2;
 	/**
 	 * [__construct description]
 	 * untuk menampung semua yang diload ketika controller di akses
@@ -31,6 +34,7 @@ class KategoriController extends Controller
 	public function __construct()
 	{
 		$this->mKategori1 = new Kategori1;
+		$this->mKategori2 = new Kategori2;
 	}
 	/**
 	 * controller untuk kategori index
@@ -70,7 +74,7 @@ class KategoriController extends Controller
     public function kategori1Store(Request $request)
     {
     	$data['kode_kategori1'] = $request->kode_kategori1;
-		$data['nama_kategori1'] = $request->nama_kategori1;
+    	$data['nama_kategori1'] = $request->nama_kategori1;
     	try{
     		$this->mKategori1->kode_kategori1 = $request->kode_kategori1;
     		$this->mKategori1->nama_kategori1 = $request->nama_kategori1;
@@ -142,5 +146,29 @@ class KategoriController extends Controller
     			'success' => 'true'
     		]);
     	}
+    }
+
+    public function kategori2()
+    {
+    	$data['listskat1'] = $this->mKategori1::all();
+    	$data['listskat2'] = $this->mKategori2::GetAll()->joinKategori1()->get();
+    	return view('admin.barang.kategori.kategori2')->with($data);
+    }
+
+    public function kategori2Store(Request $request)
+    {
+    	//try{
+    		$this->mKategori2->kode_kategori2 = $request->kode_kategori2;
+    		$this->mKategori2->nama_kategori2 = $request->nama_kategori2;
+    		$this->mKategori2->id_kategori1 = $request->id_kategori1;
+    		if ($this->mKategori2->save()) {
+    			return redirect('/admin/barang/kategori/kategori2');
+    		}else{
+    			return redirect('/admin/barang/kategori/kategori2');
+    		}
+    	/*} catch (\Illuminate\Database\QueryException $e) {
+    		return redirect()->back();
+    	}
+    	*/
     }
 }

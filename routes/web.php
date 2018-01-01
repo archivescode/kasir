@@ -27,11 +27,22 @@ Route::prefix('admin')->group(function () {
 		Route::get('/input', 'BarangController@add');
 		Route::prefix('kategori')->group(function () {
 			Route::get('/', 'KategoriController@index');
+			/**
+			 * raote untuk kategori 1
+			 */
 			Route::get('/kategori1', 'KategoriController@kategori1');
 			Route::post('/kategori1', 'KategoriController@kategori1Store');
 			Route::post('/kategori1/delete', 'KategoriController@kategori1Delete');
 			Route::get('/kategori1/{id}', 'KategoriController@kategori1Edit');
 			Route::post('/kategori1/edit', 'KategoriController@kategori1Update');
+			/**
+			 * route untuk kategori 2
+			 */
+			Route::get('/kategori2', 'KategoriController@kategori2');
+			Route::post('/kategori2', 'KategoriController@kategori2Store');
+			Route::post('/kategori2/delete', 'KategoriController@kategori2Delete');
+			Route::get('/kategori2/{id}', 'KategoriController@kategori2Edit');
+			Route::post('/kategori2/edit', 'KategoriController@kategori2Update');
 		});
 	});
 
