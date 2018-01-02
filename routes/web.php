@@ -43,6 +43,14 @@ Route::prefix('admin')->group(function () {
 			Route::post('/kategori2/delete', 'KategoriController@kategori2Delete');
 			Route::get('/kategori2/{id}', 'KategoriController@kategori2Edit');
 			Route::post('/kategori2/edit', 'KategoriController@kategori2Update');
+			/**
+			 * route untuk kategori 3
+			 */
+			Route::get('/kategori3', 'KategoriController@kategori3');
+			Route::post('/kategori3', 'KategoriController@kategori3Store');
+			Route::post('/kategori3/delete', 'KategoriController@kategori3Delete');
+			Route::get('/kategori3/{id}', 'KategoriController@kategori3Edit');
+			Route::post('/kategori3/edit', 'KategoriController@kategori3Update');
 		});
 	});
 

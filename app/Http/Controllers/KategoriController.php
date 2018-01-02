@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kategori1;
 use App\Models\Kategori2;
+use App\Models\Kategori3;
 use Exception;
 
 class KategoriController extends Controller
@@ -24,6 +25,7 @@ class KategoriController extends Controller
 	 */
 	protected $mKategori1;
 	protected $mKategori2;
+	protected $mKategori3;
 	/**
 	 * [__construct description]
 	 * untuk menampung semua yang diload ketika controller di akses
@@ -35,6 +37,7 @@ class KategoriController extends Controller
 	{
 		$this->mKategori1 = new Kategori1;
 		$this->mKategori2 = new Kategori2;
+		$this->mKategori3 = new Kategori3;
 	}
 	/**
 	 * controller untuk kategori index
@@ -147,17 +150,32 @@ class KategoriController extends Controller
     		]);
     	}
     }
-
+    /**
+     * [kategori2 description]
+     * halaman awal kategori 2
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @return  [type]  [description]
+     */
     public function kategori2()
     {
     	$data['listskat1'] = $this->mKategori1::all();
     	$data['listskat2'] = $this->mKategori2::GetAll()->joinKategori1()->get();
     	return view('admin.barang.kategori.kategori2')->with($data);
     }
-
+    /**
+     * [kategori2Store description]
+     * fungsi untuk menyimpan kategori 2
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   Request $request [description]
+     * @return  [type]           [description]
+     */
     public function kategori2Store(Request $request)
     {
-    	//try{
+    	try{
     		$this->mKategori2->kode_kategori2 = $request->kode_kategori2;
     		$this->mKategori2->nama_kategori2 = $request->nama_kategori2;
     		$this->mKategori2->id_kategori1 = $request->id_kategori1;
@@ -166,9 +184,72 @@ class KategoriController extends Controller
     		}else{
     			return redirect('/admin/barang/kategori/kategori2');
     		}
-    	/*} catch (\Illuminate\Database\QueryException $e) {
+    	} catch (\Illuminate\Database\QueryException $e) {
     		return redirect()->back();
     	}
-    	*/
+    }
+    /**
+     * edit kategori 2
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   [type]  $id [description]
+     * @return  [type]      [description]
+     */
+    public function kategori2Edit($id)
+    {
+    	$data['listskat1'] = $this->mKategori1::all();
+    	$data['kategoris2'] = $this->mKategori2::find($id);
+    	return view('admin.barang.kategori.kategori2Edit')->with($data);
+    }
+    /**
+     * kode eksekusi kategori 2
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   Request $request [description]
+     * @return  [type]           [description]
+     */
+    public function kategori2Update(Request $request)
+    {
+    	try{
+    		$update = $this->mKategori2::find($request->id_kategori2);
+    		$update->kode_kategori2 = $request->kode_kategori2;
+    		$update->nama_kategori2 = $request->nama_kategori2;
+    		$update->id_kategori1 = $request->id_kategori1;
+    		if($update->save())
+    		{
+    			return redirect('/admin/barang/kategori/kategori2');
+    		}else{
+    			return redirect('/admin/barang/kategori/kategori2/'.$request->id_kategori2);
+    		}
+    	} catch (\Illuminate\Database\QueryException $e) {
+    		return redirect()->back()->with('id_kategori2',$request->id_kategori2);
+    	}
+
+    }
+    /**
+     * delete kategori 2
+     * Program ini di buat oleh archivescode
+     * @sarono
+     * @version version
+     * @param   Request $request [description]
+     * @return  [type]           [description]
+     */
+    public function kategori2Delete(Request $request)
+    {
+    	$delete = $this->mKategori2::find($request->id_kategori2);
+    	if($delete->delete()){
+    		return response()->json([
+    			'success' => 'true'
+    		]);
+    	}
+    }
+
+    public function kategori3()
+    {
+    	$data['listskat2'] = $this->mKategori2::all();
+    	$data['listskat3'] = $this->mKategori3::GetAll()->joinKategori1()->joinKategori2()->get();
+    	return view('admin.barang.kategori.kategori3')->with($data);
     }
 }

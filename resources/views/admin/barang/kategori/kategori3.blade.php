@@ -19,7 +19,7 @@
 <script src="{{ asset('assets/select2/dist/js/select2.full.min.js') }}"></script>
 <script type="text/javascript">
 	$(function () {
-		var table =  $('#tabelkategori2').DataTable({
+		var table =  $('#tabelkategori3').DataTable({
 			'paging'      : true,
 			'lengthChange': false,
 			'searching'   : true,
@@ -44,11 +44,11 @@
 			},
 			]
 		})
-		$('#tabelkategori2 tbody').on( 'click', 'td.action .edit', function () {
+		$('#tabelkategori3 tbody').on( 'click', 'td.action .edit', function () {
 			var id = $(this).data("id");
-			window.location.href = "/admin/barang/kategori/kategori2/"+id;
+			window.location.href = "/admin/barang/kategori/kategori3/"+id;
 		} );
-		$('#tabelkategori2 tbody').on( 'click', 'td.action .hapus', function () {
+		$('#tabelkategori3 tbody').on( 'click', 'td.action .hapus', function () {
 			var id = $(this).data("id");
 			var token = $(this).data("token");
 			var kode = $(this).data("kode");
@@ -64,15 +64,15 @@
 			var id = $(this).data("modalid");
 			var token = $(this).data("modaltoken");
 			$.ajax({
-				url: '/admin/barang/kategori/kategori2/delete',
+				url: '/admin/barang/kategori/kategori3/delete',
 				type: 'POST',
-				data: {_token:token , "id_kategori2" : id },
+				data: {_token:token , "id_kategori3" : id },
 				dataType: 'JSON',
 				success: function(result) {
 					
 					if (result.success == 'true') {
 						$('#modal-danger').modal('toggle');						
-						window.location.href = "/admin/barang/kategori/kategori2";
+						window.location.href = "/admin/barang/kategori/kategori3";
 						alert('Data Berhasil Di Hapus');
 					}else{
 						alert('gagal delete');
@@ -80,8 +80,8 @@
 				}
 			});
 		});
-		$(".select_kategori1").select2({
-			placeholder: "Select a Kategori 1",
+		$(".select_kategori2").select2({
+			placeholder: "Select a Kategori 2",
 			allowClear: true
 		});
 	})
@@ -89,23 +89,23 @@
 @stop
 
 <!-- title website -->
-@section('title', 'Kategori 2')
+@section('title', 'Kategori 3')
 
 <!-- set menu sidebar active -->
-@section('menu', 'kategori2')
+@section('menu', 'kategori3')
 
 <!-- //pageheader content -->
-@section('pageheader', 'Kategori 2')
+@section('pageheader', 'Kategori 3')
 
 <!-- //subpageheader contente -->
-@section('subpageheader', 'Data Kategori 2')
+@section('subpageheader', 'Data Kategori 3')
 
 <!-- //breadcrumb -->
 @section('breadcrumb')
 @parent
 <li><a href="{{ url('admin/barang') }}"><i class="fa fa-shopping-basket"></i> Barang</a></li>
 <li><a href="{{ url('admin/barang/kategori') }}"><i class="fa fa-shopping-basket"></i> Kategori</a></li>
-<li class="active">Kategori 2</li>
+<li class="active">Kategori 3</li>
 @stop
 
 <!-- //main content -->
@@ -115,35 +115,35 @@
 	<!-- Horizontal Form -->
 	<div class="box box-info">
 		<div class="box-header with-border">
-			<h4 class="box-title">Input Kategori 2</h4>
+			<h4 class="box-title">Input Kategori 3</h4>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
-		<form id="formkategori2" class="form-horizontal" action="{{ url('admin/barang/kategori/kategori2') }}" method="POST">
+		<form id="formkategori3" class="form-horizontal" action="{{ url('admin/barang/kategori/kategori3') }}" method="POST">
 			{{ csrf_field() }}
 			<div class="box-body">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="kode_kategori2" class="col-sm-4 control-label">Kode Kategori 2</label>
+						<label for="kode_kategori3" class="col-sm-4 control-label">Kode Kategori 3</label>
 
 						<div class="col-sm-8">
-							<input type="text" class="form-control" id="kode_kategori2" name="kode_kategori2" placeholder="Kode Kategori">
+							<input type="text" class="form-control" id="kode_kategori3" name="kode_kategori3" placeholder="Kode Kategori">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="nama_kategori2" class="col-sm-4 control-label">Nama Kategori 2</label>
+						<label for="nama_kategori3" class="col-sm-4 control-label">Nama Kategori 3</label>
 
 						<div class="col-sm-8">
-							<input type="text" class="form-control" id="nama_kategori2" name="nama_kategori2" placeholder="Nama Kategori">
+							<input type="text" class="form-control" id="nama_kategori3" name="nama_kategori3" placeholder="Nama Kategori">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="id_kategori1" class="col-sm-4 control-label">Pilih Kategori 1</label>
+						<label for="id_kategori2" class="col-sm-4 control-label">Pilih Kategori 1</label>
 						<div class="col-sm-8">
-							<select class="form-control select_kategori1" name="id_kategori1" id="id_kategori1" style="width: 100%;" data-placeholder="Select a Kategori 1">
+							<select class="form-control select_kategori2" name="id_kategori2" id="id_kategori2" style="width: 100%;" data-placeholder="Select a Kategori 2">
 								<option></option>
-								@foreach ($listskat1 as $list1)
-								<option value="{{ $list1->id }}">{{ $list1->kode_kategori1 }} | {{ $list1->nama_kategori1 }}</option>
+								@foreach ($listskat2 as $list2)
+								<option value="{{ $list2->id }}">{{ $list2->kode_kategori2 }} | {{ $list2->nama_kategori2 }}</option>
 								@endforeach
 							</select>
 						</div>
@@ -163,37 +163,39 @@
 	<!-- Detail -->
 	<div class="box box-info">
 		<div class="box-header with-border">
-			<h4 class="box-title">Daftar Kategori 2</h4>
+			<h4 class="box-title">Daftar Kategori 3</h4>
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
 			<div class="col-sm-12">
-				<table id="tabelkategori2" class="table table-bordered table-hover">
+				<table id="tabelkategori3" class="table table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>No</th>
 							<th>Id</th>
 							<th>Nama Kategori 1</th>
-							<th>Kode Kategori 2</th>
 							<th>Nama Kategori 2</th>
+							<th>Kode Kategori 3</th>
+							<th>Nama Kategori 3</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach ($listskat2 as $list2)
+						@foreach ($listskat2 as $list3)
 						<tr>
 							<td>1</td>
-							<td>{{ $list2->id }}</td>
-							<td>{{ $list2->nama_kategori1 }}</td>
-							<td>{{ $list2->kode_kategori2 }}</td>
-							<td>{{ $list2->nama_kategori2 }}</td>
+							<td>{{ $list3->id }}</td>
+							<td>{{ $list3->nama_kategori1 }}</td>
+							<td>{{ $list3->nama_kategori2 }}</td>
+							<td>{{ $list3->kode_kategori3 }}</td>
+							<td>{{ $list3->nama_kategori3 }}</td>
 							<td class="action center">
-								<button data-id="{{ $list2->id }}" class="edit btn btn-warning btn-flat btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</button> | 
+								<button data-id="{{ $list3->id }}" class="edit btn btn-warning btn-flat btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</button> | 
 								<button 
-									data-id="{{ $list2->id }}" 
+									data-id="{{ $list3->id }}" 
 									data-token="{{ csrf_token() }}" 
-									data-kode="{{ $list2->kode_kategori2 }}" 
-									data-nama="{{ $list2->nama_kategori2 }}" 
+									data-kode="{{ $list3->kode_kategori3 }}" 
+									data-nama="{{ $list3->nama_kategori3 }}" 
 									class="hapus btn btn-danger btn-flat btn-xs" 
 									data-toggle="modal" 
 									data-target="#modal-danger"
@@ -217,7 +219,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Konfirmasi Hapus Kategori 2</h4>
+					<h4 class="modal-title">Konfirmasi Hapus Kategori 3</h4>
 				</div>
 				<div class="modal-body">
 					<h1>Apakah anda yakin akan menghapus: </h1>
